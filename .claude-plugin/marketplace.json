@@ -9,5 +9,12 @@
     "description": "Marketplace with tools for claude code course",
     "version": "0.0.0"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "development-tools",
+      "version": "0.0.0",
+      "description": "Tools for development",
+      "source": "./plugins/facilito-developer"
+    }
+  ]
 }
