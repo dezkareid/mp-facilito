@@ -1,0 +1,13 @@
+{
+  "name": "mp-facilito",
+  "owner": {
+    "name": "Joel Humberto",
+    "email": "elmaildeldezkareid@gmail.com",
+    "url": "https://github.com/dezkareid/mp-facilito"
+  },
+  "metadata": {
+    "description": "Marketplace with tools for claude code course",
+    "version": "0.0.0"
+  },
+  "plugins": []
+}
