@@ -1,0 +1,6 @@
+{
+  "name": "development-tools",
+  "version": "0.0.1",
+  "description": "Tools for development",
+  "private": true
+}
