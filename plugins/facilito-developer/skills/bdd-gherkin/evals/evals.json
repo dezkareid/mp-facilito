@@ -1,0 +1,78 @@
+{
+  "skill_name": "bdd-gherkin",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm starting a new NestJS project and want to add Cucumber BDD tests with Gherkin. Walk me through the full setup — what to install, how to configure it for TypeScript, and how to write my first feature file and step definitions.",
+      "expected_output": "Complete setup guide: install @cucumber/cucumber and ts-node, create cucumber.json with ts-node/register (not tsx), write a .feature file and step definitions including reflect-metadata import, and show how to run with test:bdd script.",
+      "assertions": [
+        {
+          "name": "mentions @cucumber/cucumber installation",
+          "check": "Response includes installing @cucumber/cucumber"
+        },
+        {
+          "name": "recommends ts-node not tsx",
+          "check": "Response uses ts-node/register in cucumber.json, not tsx"
+        },
+        {
+          "name": "includes reflect-metadata import",
+          "check": "Step definitions include import 'reflect-metadata' as the first import"
+        },
+        {
+          "name": "shows cucumber.json config",
+          "check": "Response includes a cucumber.json with requireModule and require fields"
+        },
+        {
+          "name": "shows a .feature file example",
+          "check": "Response includes a Gherkin feature file with Feature, Scenario, Given/When/Then"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My Next.js app uses Vitest and I want to write BDD tests with Gherkin feature files. How do I install and configure everything, and can you show me a simple feature file and the matching spec?",
+      "expected_output": "Install @amiceli/vitest-cucumber (and upgrade Vitest to v3 if needed), show the features/ directory layout, a .feature file, and a .spec.mts file using loadFeature + describeFeature with path relative to CWD.",
+      "assertions": [
+        {
+          "name": "mentions @amiceli/vitest-cucumber",
+          "check": "Response includes installing @amiceli/vitest-cucumber"
+        },
+        {
+          "name": "warns about Vitest version pairing",
+          "check": "Response mentions the Vitest version requirement (v3 for vitest-cucumber v5, or v4 for v6)"
+        },
+        {
+          "name": "loadFeature path from CWD",
+          "check": "loadFeature call uses a path relative to project root / CWD, not a relative path from the spec file using ../"
+        },
+        {
+          "name": "uses describeFeature",
+          "check": "Spec file uses describeFeature from @amiceli/vitest-cucumber"
+        },
+        {
+          "name": "uses .mts extension",
+          "check": "Spec file uses .spec.mts or .mts extension"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I set up cucumber-js in my NestJS project using tsx for TypeScript transpilation, but my Gherkin tests are returning 500 errors. The NestJS logs say 'Cannot read properties of undefined (reading getHello)' — the injected service seems to be undefined. What's going wrong and how do I fix it?",
+      "expected_output": "Diagnose that tsx (esbuild) doesn't support emitDecoratorMetadata, causing NestJS DI to break. Fix: switch to ts-node/register in cucumber.json, and add import 'reflect-metadata' as the first line of step definitions.",
+      "assertions": [
+        {
+          "name": "identifies tsx/emitDecoratorMetadata as root cause",
+          "check": "Response explains that tsx does not support emitDecoratorMetadata, which NestJS needs for dependency injection"
+        },
+        {
+          "name": "prescribes ts-node fix",
+          "check": "Fix involves switching to ts-node/register in cucumber.json"
+        },
+        {
+          "name": "mentions reflect-metadata",
+          "check": "Response mentions importing reflect-metadata in the step definitions"
+        }
+      ]
+    }
+  ]
+}
